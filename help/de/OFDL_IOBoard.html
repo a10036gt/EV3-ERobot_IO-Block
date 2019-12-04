@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>E.Robot I/O Board Block --  By OFDL Taiwan</title>
+</head>
+<body BGCOLOR="FFFFFF">
+<h1>E.Robot I/O Board Block for EV3-G</h1>
+<img src="OFDL_IOBoard.png" width="40" height="40" />
+<p>
+在 LEGO&reg; MINDSTORMS&reg; NXT的時代， 貝登堡公司曾經推出過一片基於8051的IO控制板，可以通過NXT來與該控制板溝通，不過時代久遠，現在已經是EV3的天下，2021估計下一代MINDSTORMS可能都要推出了，所以幫助這個IO板做個Block，讓他在EV3上重現一下輝煌。<br><br>
+如有需要可以另外安裝OFDL I2C Tool Block，並通過OFDL的網站文章來學習如何通過EV3 I2C介面連接Ardunio或是PIC等芯片。並且較現行網路上之文章有諸多改良，如127問題。
+<br><br>
+本命令方塊由OFDL Taiwan製作. Any Question? Please contact us <a href="https://www.facebook.com/cljhofdl">OFDL Facebook Page</a>
+<br><br>
+注意：本命令方塊需要在v1.06 以上韌體運作(包含Home, Education, Developer and LabVIEW&reg; 版)。 <br>
+建議各位EV3的韌體都應升級到LEGO&reg;發布的最新版本，不過1.10不建議。<br><br>
+目前版本之Block僅能做IIC Write動作，所以原本的Analog Input 與 Digital Input尚未完工，待技術問題處理後再行上架。
+<br><br>
+"E.Robot I/O Board Block - OFDL Dev." is not officially supported by the LEGO&reg; Group or K-Kingdom&reg;(KKITC).
+</p>
+<hr>
+<h2>程式資料線說明</h2>
+<h3>・Range</h3>
+<p>輸入PWM 之總週期寬度、Digital Output之數值</p>
+<h3>・PWM1</h3>
+<p>設置PWM1輸出比率之數值</p>
+<h3>・PWM2</h3>
+<p>設置PWM2輸出比率之數值</p>
+<h3>・Status</h3>
+<p>輸出IO板狀態資料，一般無用</p>
+<h3>・Error?</h3>
+<p>判斷是否正確連接IO板</p>
+<hr>
+<h2>程式功能說明</h2>
+<h3>・PWM Output</h3>
+<p>通過設置PWM總週期寬度與PWM1、PWM2數值，輸出PWM到對應腳位。</p>
+<h3>・Digital Output</h3>
+<p>輸出Range所定義的狀態到IO板上，並輸出到D0-D7腳位。</p>
+<hr>
+<footer>
+<a href="https://www.facebook.com/cljhofdl">Original Flipped Digital Lab</a>,  OFDL Taiwan © 2019
+</footer>
+</body>
+</html>

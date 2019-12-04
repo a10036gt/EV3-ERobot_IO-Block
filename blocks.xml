@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EditorDefinitions>
+	<PolyGroups ModuleName="OFDL_IOBoard" ModuleVersion="1.2b (OFDL Dev.HSU)">
+		<PolyGroup Name="OFDL_IOBoard" DisplayNamePrefix="IOBoard" BlockFamily="Sensor">
+			<Parameter Name="Port" CompilerDirectives="OneInputPort" Direction="Input" DefaultValue="1.4" />
+			<Parameter Name="Range" Direction="Input" DataType="Int32" DefaultValue="255"  Identification="builtin://Identification_x.png"/>
+			<Parameter Name="PWM1" Direction="Input" DataType="Int32" DefaultValue="128"  Identification="builtin://Identification_x1.png"/>
+			<Parameter Name="PWM2" Direction="Input" DataType="Int32" DefaultValue="128"  Identification="builtin://Identification_x2.png"/>
+			<Parameter Name="Error" Identification="builtin://Identification_TrueFalse.png" DataType="Boolean" Direction="Output" />
+			<Parameter Name="Output" Identification="builtin://Identification_Numeric.png" DataType="Int32" Direction="Output" />
+			<Parameter Name="Status" Identification="builtin://Identification_Pulse.png" DataType="UInt8" Direction="Output" />
+			<Parameter Name="Output_U8" Identification="builtin://Identification_Pulse.png" DataType="UInt8" Direction="Output" />
+			<Parameter Name="Input_I32" Identification="builtin://Identification_Pulse.png" DataType="Int32" DefaultValue="0" Direction="Input" />
+			<Hardware>
+				<EV3AutoID>-1</EV3AutoID>
+				<Direction>Input</Direction>
+				<DefaultPort>1</DefaultPort>
+			</Hardware>
+				<Block>
+					<Mode>PWM</Mode>
+					<Reference Type="VILib" Name="IO_PWM.vix" />
+					<ParameterReference Name="Port" />
+					<ParameterReference Name="Range" />
+					<ParameterReference Name="PWM1" />
+					<ParameterReference Name="PWM2" />
+					<ParameterReference Name="Status" />
+					<ParameterReference Name="Error" />
+					<PaletteInfo Weight="0.5" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<Block>
+					<Mode>DOUT</Mode>
+					<Reference Type="VILib" Name="IO_DOUT.vix" />
+					<ParameterReference Name="Port" />
+					<ParameterReference Name="Range" />
+					<ParameterReference Name="Status" />
+					<ParameterReference Name="Error" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<!--
+				<Block>
+					<Mode>DATACONV</Mode>
+					<Reference Type="VILib" Name="OFDL_I32toU8.vix" />
+					<ParameterReference Name="Input_I32" />
+					<ParameterReference Name="Output_U8" />
+				</Block>
+				-->
+		</PolyGroup>
+	</PolyGroups>
+</EditorDefinitions>
+

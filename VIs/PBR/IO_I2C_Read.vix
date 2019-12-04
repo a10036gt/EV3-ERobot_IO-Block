@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="Port" DataType="Single" DefaultTerminalDirection="Output" CallUsage="Optional" CallDirection="Input" CallIndex="0" />
+            <DataItem Name="DevAddr" DataType="Int32" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="1" />
+            <DataItem Name="readLength" DataType="Byte" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="5" DefaultValue="0" />
+            <DataItem Name="return" DataType="Byte[]" DefaultTerminalDirection="Output" CallUsage="Optional" CallDirection="Output" CallIndex="0" />
+            <DataItem Name="RegAddr" DataType="Int32" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="2" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model0="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model0:DesignerSurfaceProperties.CanSnapToObjects="True" Model0:DesignerSurfaceProperties.SnapToObjects="True" Model0:DesignerSurfaceProperties.ShowSnaplines="True" Model0:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <Comment Bounds="42 14 231 63" SizeMode="User" AttachStyle="Free">
+                    <Content>I2C Read Func for Erobot IO Board.
+
+OFDL HSU 2019.12.03</Content>
+                </Comment>
+                <Wire Id="w30" Joints="N(n37:Out) N(n26:c0t0v)" />
+                <Wire Id="w15" Joints="N(n10:layer) N(n22:layer)" />
+                <Wire Id="w19" Joints="N(n10:portOut) N(n22:port)" />
+                <Wire Id="w11" Joints="N(n11:Out) N(n22:repeat)" />
+                <Wire Id="w13" Joints="N(n12:Out) N(n22:time)" />
+                <Wire Id="w49" Joints="N(n28:Numeric) N(n10:port)" />
+                <Wire Id="w50" Joints="N(n46:Value) N(n22:readLength)" />
+                <Wire Id="w60" Joints="N(n17:Numeric) N(n26:c0t1v)" />
+                <Wire Id="w42" Joints="N(n62:Out) N(n22:writeLength)" />
+                <Wire Id="w43" Joints="N(n21:Out) N(n26:inArray)" />
+                <Wire Id="w52" Joints="N(n22:readData) N(n16:Numeric)" />
+                <DataAccessor DataItem="Port" Id="n28" Bounds="301 98 70 14">
+                    <Terminal Id="Numeric" Direction="Output" Wire="w49" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="DevAddr" Id="n17" Bounds="70 196 77 14">
+                    <Terminal Id="Numeric" Direction="Output" Wire="w60" Hotspot="1 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="readLength" Id="n46" Bounds="392 182 91 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w50" Hotspot="1 0.5" Bounds="0 0 91 14" />
+                </DataAccessor>
+                <Literal Facade="ArrayConstantFacade" Id="n21" Terminals="Out=w43" Bounds="-28 168 49 140" Interpretation="Exact" DataType="Byte[]">[1,66,128,128,128,128,128,128,128,128]</Literal>
+                <ReplaceArraySubset Rank="1" VerticalChunkCount="1" Id="n26" Terminals="inArray=w43, outArray=w56, c0t0v=w30, c0t1v=w60" Bounds="168 168 28 42" />
+                <Literal Id="n37" Terminals="Out=w30" Bounds="119 182 28 14" Interpretation="Exact" DataType="Int32">0</Literal>
+                <MethodCall Id="n10" Bounds="399 98 28 28" Target="X3\.Lib:PBrickPortConvertInput">
+                    <Terminal Id="port" Direction="Input" Wire="w49" DataType="Int32" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                    <Terminal Id="layer" Direction="Output" Wire="w15" DataType="SByte" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                    <Terminal Id="portOut" Direction="Output" Wire="w19" DataType="SByte" Hotspot="1 0.5" Bounds="14 14 14 14" />
+                </MethodCall>
+                <MethodCall Id="n22" Bounds="504 98 28 98" Target="X3\.Lib:PBrickInputSetupI2C">
+                    <Terminal Id="layer" Direction="Input" Wire="w15" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                    <Terminal Id="port" Direction="Input" Wire="w19" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                    <Terminal Id="repeat" Direction="Input" Wire="w11" DataType="Byte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                    <Terminal Id="time" Direction="Input" Wire="w13" DataType="Byte" Hotspot="0 0.5" Bounds="0 42 14 14" />
+                    <Terminal Id="writeLength" Direction="Input" Wire="w42" DataType="Byte" Hotspot="0 0.5" Bounds="0 56 14 14" />
+                    <Terminal Id="writeData" Direction="Input" Wire="w31" DataType="Byte[]" Hotspot="0 0.5" Bounds="0 70 14 14" />
+                    <Terminal Id="readLength" Direction="Input" Wire="w50" DataType="Byte" Hotspot="0 0.5" Bounds="0 84 14 14" />
+                    <Terminal Id="readData" Direction="Output" Wire="w52" DataType="Byte[]" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                </MethodCall>
+                <Literal Id="n11" Terminals="Out=w11" Bounds="455 126 28 14" Interpretation="Exact" DataType="Byte">1</Literal>
+                <Literal Id="n12" Terminals="Out=w13" Bounds="455 140 28 14" Interpretation="Exact" DataType="Byte">0</Literal>
+                <Literal Id="n62" Terminals="Out=w42" Bounds="455 154 28 14" Interpretation="Exact" DataType="Int32">2</Literal>
+                <DataAccessor DataItem="return" Id="n16" Bounds="553 98 70 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w52" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Wire Id="w53" Joints="N(n53:Out) N(n52:c0t0v)" />
+                <Wire Id="w54" Joints="N(n51:Numeric) h(35) v(-21) N(n52:c0t1v)" />
+                <DataAccessor DataItem="RegAddr" Id="n51" Bounds="175 217 77 14">
+                    <Terminal Id="Numeric" Direction="Output" Wire="w54" Hotspot="1 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <ReplaceArraySubset Rank="1" VerticalChunkCount="1" Id="n52" Terminals="inArray=w56, outArray=w31, c0t0v=w53, c0t1v=w54" Bounds="294 168 28 42" />
+                <Literal Id="n53" Terminals="Out=w53" Bounds="245 182 28 14" Interpretation="Exact" DataType="Int32">1</Literal>
+                <Wire Id="w56" Joints="N(n26:outArray) N(n52:inArray)" />
+                <Wire Id="w31" Joints="N(n52:outArray) N(n22:writeData)" />
+            </BlockDiagram>
+            <Icon>
+                <Model:IconPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Model="clr-namespace:NationalInstruments.LabVIEW.VI.Design;assembly=NationalInstruments.LabVIEW.VI.SourceModel" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:ation="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Height="98" Width="56">
+                    <fpruntime:AnimationProperties.Animations>
+                        <fpruntime:AnimationsContainer />
+                    </fpruntime:AnimationProperties.Animations>
+                    <fpruntime:EventProperties.Events>
+                        <fpruntime:EventContainer />
+                    </fpruntime:EventProperties.Events>
+                    <Model:IconPanel.Background>
+                        <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                            <ation:LinearGradientBrush.Transform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.Transform>
+                            <ation:LinearGradientBrush.RelativeTransform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.RelativeTransform>
+                            <ation:GradientStop Color="#FFF6F5C6" />
+                            <ation:GradientStop Color="#FFFFFFFE" Offset="0.25" />
+                            <ation:GradientStop Color="#FFF6F5C6" Offset="1" />
+                        </ation:LinearGradientBrush>
+                    </Model:IconPanel.Background>
+                    <ation:Rectangle x:Name="Template" Width="NaN" Height="NaN" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, -8.76000133156779, 0, -0.320000499486895" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Fill="#00FFFFFF" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                    </ation:Rectangle>
+                    <ation:Rectangle x:Name="Template2" Width="NaN" Height="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:Rectangle.Fill>
+                            <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                                <ation:LinearGradientBrush.Transform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.Transform>
+                                <ation:LinearGradientBrush.RelativeTransform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.RelativeTransform>
+                                <ation:GradientStop Color="#FFFFFFFF" />
+                                <ation:GradientStop Color="#FFD5EAEA" Offset="1" />
+                            </ation:LinearGradientBrush>
+                        </ation:Rectangle.Fill>
+                    </ation:Rectangle>
+                    <ation:TextBlock x:Name="Template3" Width="NaN" Height="NaN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, -0.100000001490116, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Text="SubVI" FontFamily="Verdana" FontSize="10" FontWeight="Normal" Foreground="#FF000000">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <fpruntime:BuddyReferenceProperties.BuddyProperties>
+                            <fpruntime:BuddyProperties />
+                        </fpruntime:BuddyReferenceProperties.BuddyProperties>
+                    </ation:TextBlock>
+                    <ation:TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1.24313640594482, 37.6910071372986, 0, 0" FontSize="10.5">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:TextBlock.Text>
+                            <String xml:space="preserve" xmlns="clr-namespace:System;assembly=mscorlib">OFDL I2C
+
+   Read</String>
+                        </ation:TextBlock.Text>
+                        <fpruntime:BuddyReferenceProperties.BuddyProperties>
+                            <fpruntime:BuddyProperties />
+                        </fpruntime:BuddyReferenceProperties.BuddyProperties>
+                    </ation:TextBlock>
+                </Model:IconPanel>
+            </Icon>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

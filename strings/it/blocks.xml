@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EditorStrings>
+	<PolyGroups ModuleName="OFDL_IOBoard">
+		<PolyGroup Name="OFDL_IOBoard" DisplayName="E.Robot I/O Board - OFDL Dev.">
+			<Description><![CDATA[<p>Context help for PolyGroup <b>E.Robot I/O Board</b></p>]]></Description>
+			<Parameter Name="Port" DisplayName="Port"></Parameter>
+			<Parameter Name="Range" DisplayName="Range"></Parameter>
+			<Parameter Name="PWM1" DisplayName="PWM 1"></Parameter>
+			<Parameter Name="PWM2" DisplayName="PWM 2"></Parameter>
+			<Parameter Name="Error" DisplayName="Error"></Parameter>
+			<Parameter Name="Output" DisplayName="Output"></Parameter>
+			<Parameter Name="Status" DisplayName="Status"></Parameter>
+			<Block Mode="PWM" DisplayName="PWM Output"></Block>
+			<Block Mode="DOUT" DisplayName="Digital Output"></Block>
+			<Block Mode="DATACONV" DisplayName="Conv I32 to Real U8"></Block>
+		</PolyGroup>
+	</PolyGroups>
+</EditorStrings>

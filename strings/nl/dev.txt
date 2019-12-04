@@ -1,0 +1,4 @@
+<!--
+			<Block Mode="DIN" DisplayName="Digital Input"></Block>
+			<Block Mode="AIN" DisplayName="Analog Input"></Block>
+			<Block Mode="DATACONV" DisplayName="Conv I32 to U8"></Block>-->
