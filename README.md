@@ -5,6 +5,6 @@
 
 如有需要可以另外安裝OFDL I2C Tool Block，並通過OFDL的網站文章來學習如何通過EV3 I2C介面連接Ardunio或是PIC等芯片。並且較現行網路上之文章有諸多改良，如127問題。
 
-使用說明：https://www.ofdl.nctu.me/ev3-hack/erobot-io-block/
+使用說明：https://ofdl.tw/ev3-hack/erobot-io-block/
 
 "E.Robot I/O Board Block - OFDL Dev." is not officially supported by the LEGO® Group or K-Kingdom®(KKITC).
